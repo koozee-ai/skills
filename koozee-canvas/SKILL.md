@@ -1,6 +1,6 @@
 ---
 name: koozee-canvas
-description: "Generate with Koozee only when the workbench has no such tool: canvas image, video, or text models, prompts, linking cards. Use when the user asks for 图片, 视频, 文本, 提示词 that are not a workbench tool. Read koozee-shared first."
+description: "Generate with Koozee only when the workbench has no such tool: canvas image, video, or text models, prompts, linking cards. Use when the user asks for 图片, 视频, 文本, 提示词, 服装, 电商, 营销 that are not a workbench tool. Read koozee-shared first."
 metadata:
   requires:
     bins: ["koozee-cli"]
