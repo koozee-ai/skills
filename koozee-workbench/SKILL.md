@@ -1,6 +1,6 @@
 ---
 name: koozee-workbench
-description: "Run Koozee workbench tools, including 标准平铺, 服装试穿, Sexy服装试穿, 换姿势, 服装换色, 详情页. 比基尼试穿, 泳衣试穿, 内衣试穿 use Sexy服装试穿. Also 平铺转3D, 提取主图, 提取印花, 换印花, 细节图, 鞋子提取, 商品换场景, 换模特, 换角度, 换场景, 鞋子试穿, 画质修复, 视频高清, AI消除, AI抠图, Tiktok定点自拍, 穿搭卡点素材, 服装线稿精绘, 鞋子线稿精绘, 服装去褶皱, 衣服色彩迁移. Use workflow only when the user explicitly asks for 工作流 or 画布. Read koozee-shared first."
+description: "Run Koozee workbench tools, including 标准平铺, 服装试穿, Sexy服装试穿, 换姿势, 服装换色, 详情页. 比基尼试穿, 泳衣试穿, 内衣试穿 use Sexy服装试穿. Also 平铺转3D, 提取主图, 提取印花, 换印花, 细节图, 鞋子提取, 商品换场景, 换模特, 换角度, 换场景, 鞋子试穿, 画质修复, 视频高清, AI消除, AI抠图, Tiktok定点自拍, 穿搭卡点素材, 服装线稿精绘, 鞋子线稿精绘, 服装去褶皱, 衣服色彩迁移. Read koozee-shared first."
 metadata:
   requires:
     bins: ["koozee-cli"]
@@ -8,7 +8,7 @@ metadata:
 
 # 工作台
 
-先读 `koozee-shared`。工作台有的，或和工作流交叉的，走这里，`--surface workbench`。工作台没有的改读 `koozee-canvas`。用户明确说工作流或画布时，交叉功能可以改走 canvas。
+先读 `koozee-shared`。工作台有的走这里，`--surface workbench`。工作台没有的改读 `koozee-canvas`。
 
 ## 功能命中
 
