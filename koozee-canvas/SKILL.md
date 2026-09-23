@@ -1,6 +1,6 @@
 ---
 name: koozee-canvas
-description: "Route canvas work: pick a model or published skill, place a card, link edges, confirm with the user, then generate. Read koozee-shared first."
+description: "Route canvas work: pick a model or skill, place a card, link edges, confirm with the user, then generate. Read koozee-shared first."
 metadata:
   requires:
     bins: ["koozee-cli"]
@@ -8,14 +8,14 @@ metadata:
 
 # 画布路由
 
-先读 `koozee-shared`。人在对话里点头之前，不要提交生成。
+先读 `koozee-shared`。人在对话里点头之前，不要提交生成。参数看 `koozee-cli <命令> -h`。槽看 `+models` 或 `skill +get`。
 
 扣豆、`--place`、`skill +run --write` 之前先 `+plan --surface workflow|workbench --purpose <短名> --steps <json>`。把 `totalBeans` 和 `warnings` 讲给人。价格表不写在这里。`type: balance` 是余额不足，不要重试提交。
 
 ## 怎么选
 
 1. 单模型：`koozee-cli +models`。图 / 视频 / 文本走 `image|video|text +generate`。
-2. 四产品或已上线 Skill：`koozee-cli skill +list`。需要输出槽或默认值时 `skill +get --id <id>`，再 `+plan` / `skill +run`。
+2. Skill：`koozee-cli skill +list`。槽看 `skill +get --id <id>`，再 `+plan` / `skill +run`。
 3. `--surface workflow` 才能落项目。`workbench` 只提交，不落卡、不加线。
 
 ## 本地文件
@@ -35,4 +35,4 @@ metadata:
 
 - 文本：信封 `text` 讲给人。`workflow --node-id` 同时写入该卡。人刷新画布才能看见。`taskIds` 为空就不要 `+await`。
 - 图 / 视频：信封有 `taskIds` 再 `+await --task-id <id> --surface workflow --project-id <id> --node-id <id>`。成功后写入该卡。超时跑信封 `next_command`。人刷新才能看见。
-- Skill / 产品：`+await --run-id <id> --id <skillId> --project-id <id> --node-id <任务卡>`，或产品 `+await --task-id <id> --surface workflow --project-id <id> --node-id <任务卡>`。成功后扇出结果卡并加出边。不要对结果卡逐条 `+link`。正文在 `results[].text`。超时跑信封 `next_command`。人刷新才能看见。
+- Skill：信封有 `taskIds` 用 `+await --task-id`；有 `runId` 用 `+await --run-id --id`。成功后扇出结果卡并加出边。不要对结果卡逐条 `+link`。正文在 `results[].text`。超时跑信封 `next_command`。人刷新才能看见。

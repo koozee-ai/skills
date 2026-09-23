@@ -53,7 +53,7 @@ sudo tar -xJf /tmp/nodejs-lts.tar.xz -C /usr/local --strip-components=1
 
 ## 契约
 
-人在 Agent 对话里确认。CLI 不提问。判断成功用 **`ok == true`**。失败看 `error.hint`。
+人在 Agent 对话里确认。CLI 不提问。判断成功用 **`ok == true`**。失败看 `error.hint`。参数看 `koozee-cli <命令> -h`。槽看 `+models`、`skill +get`、`workbench +list`。
 
 禁止手写画布 JSON、禁止传坐标、禁止自己拼 OpenAPI path、禁止自己订 SSE。怎么生成、怎么连线，读 `koozee-canvas`。
 
