@@ -1,6 +1,6 @@
 ---
 name: koozee-shared
-description: "Use before any koozee-* skill: Node gate, login, JSON ok envelope. Do not hand-write canvas JSON."
+description: "Use before koozee-canvas or koozee-workbench when generating with Koozee. Node gate, login, JSON ok envelope. Do not hand-write canvas JSON."
 metadata:
   requires:
     bins: ["koozee-cli"]

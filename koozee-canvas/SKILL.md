@@ -1,6 +1,6 @@
 ---
 name: koozee-canvas
-description: "Route canvas work: pick a model or skill, place a card, link edges, confirm with the user, then generate. Read koozee-shared first."
+description: "Generate with Koozee only when the workbench has no such tool: canvas image, video, or text models, prompts, linking cards. Use when the user asks for 图片, 视频, 文本, 提示词 that are not a workbench tool, or explicitly asks for 工作流 or 画布. Read koozee-shared first."
 metadata:
   requires:
     bins: ["koozee-cli"]
@@ -8,14 +8,14 @@ metadata:
 
 # 画布路由
 
-先读 `koozee-shared`。人在对话里点头之前，不要提交生成。参数看 `koozee-cli <命令> -h`。槽看 `+models` 或 `skill +get`。
+先读 `koozee-shared`。工作台没有的才走这里。用户明确说工作流或画布时，交叉功能可以留在这里。人在对话里点头之前，不要提交生成。参数看 `koozee-cli <命令> -h`。槽看 `+models` 或 `skill +get`。
 
 扣豆、`--place`、`skill +run --write` 之前先 `+plan --surface workflow|workbench --purpose <短名> --steps <json>`。把 `totalBeans` 和 `warnings` 讲给人。价格表不写在这里。`type: balance` 是余额不足，不要重试提交。
 
 ## 怎么选
 
 1. 单模型：`koozee-cli +models`。图 / 视频 / 文本走 `image|video|text +generate`。
-2. Skill：`koozee-cli skill +list`。槽看 `skill +get --id <id>`，再 `+plan` / `skill +run`。
+2. 工作台没有的 Skill：`koozee-cli skill +list`。槽看 `skill +get --id <id>`，再 `+plan` / `skill +run`。工作台有的或两边都有的改读 `koozee-workbench`。
 3. `--surface workflow` 才能落项目。`workbench` 只提交，不落卡、不加线。
 
 ## 本地文件
