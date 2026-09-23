@@ -1,9 +1,6 @@
 ---
 name: koozee-workbench
 description: "Run Koozee workbench tools, including 标准平铺, 服装试穿, Sexy服装试穿, 换姿势, 服装换色, 详情页. 比基尼试穿, 泳衣试穿, 内衣试穿 use Sexy服装试穿. Also 平铺转3D, 提取主图, 提取印花, 换印花, 细节图, 鞋子提取, 商品换场景, 换模特, 换角度, 换场景, 鞋子试穿, 画质修复, 视频高清, AI消除, AI抠图, Tiktok定点自拍, 穿搭卡点素材, 服装线稿精绘, 鞋子线稿精绘, 服装去褶皱, 衣服色彩迁移. Use when the user asks for 服装, 电商, 营销. Read koozee-shared first."
-metadata:
-  requires:
-    bins: ["koozee-cli"]
 ---
 
 # 工作台

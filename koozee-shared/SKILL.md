@@ -1,9 +1,6 @@
 ---
 name: koozee-shared
 description: "Use before koozee-canvas or koozee-workbench when generating with Koozee. Node gate, login, JSON ok envelope. Do not hand-write canvas JSON."
-metadata:
-  requires:
-    bins: ["koozee-cli"]
 ---
 
 # koozee-cli 共享规则
@@ -39,13 +36,15 @@ sudo tar -xJf /tmp/nodejs-lts.tar.xz -C /usr/local --strip-components=1
 
 ## 首次安装
 
-过 Node 闸后按这个顺序。不要自己 `npm i` 当升级。
+过 Node 闸后按这个顺序。不要 `npm i -g`。不要改 PATH。不要为装 Skill 去装 git。
 
-1. `command -v koozee-cli` 没有 → `npx koozee-cli@latest`。
-2. `npx skills add koozee-ai/skills -g --skill koozee-shared --skill koozee-canvas --skill koozee-workbench`
-3. `koozee-cli auth login`（默认 `release`）。预发：`koozee-cli auth login --env pre`。
+可执行文件固定为 `"$HOME/.koozee/node_modules/.bin/koozee-cli"`。本文件和另外两份 Skill 里写的 `koozee-cli` 都换成这个路径再执行。
 
-本仓开发：`pnpm --dir cli exec koozee-cli --version`。已装之后升用 `koozee-cli update`。
+1. 这个文件不存在 → `npm install --prefix "$HOME/.koozee" koozee-cli@latest`。
+2. `npx skills add "$HOME/.koozee/node_modules/koozee-cli/skills" -g -y --skill koozee-shared --skill koozee-canvas --skill koozee-workbench`
+3. `"$HOME/.koozee/node_modules/.bin/koozee-cli" auth login`（默认 `release`）。预发在同一条命令后加 `--env pre`。
+
+本仓开发：`pnpm --dir cli exec koozee-cli --version`。已装之后升用 `"$HOME/.koozee/node_modules/.bin/koozee-cli" update`。不要自己 `npm i` 当升级。
 
 ## 登录
 
