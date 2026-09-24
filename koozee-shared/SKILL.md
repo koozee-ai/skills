@@ -99,7 +99,9 @@ if (-not $installed) {
 
 ## 登录
 
-未登录禁止 Shortcut。先 `koozee-cli auth status`；未登录则走上面的 `auth login`。环境只在登录时写入。凭证在当前项目 `.koozee/credentials.json`。不要提交 `.koozee/`。不要自己打开授权 URL。
+未登录禁止 Shortcut。先 `koozee-cli auth status`；未登录则走上面的 `auth login`。环境只在登录时写入。凭证在当前项目 `.koozee/credentials.json`。不要提交 `.koozee/`。
+
+CLI 会自己打开浏览器。不要自己再打开这条 URL。命令可能先打出一行 `{"event":"login","url":"..."}`，这一行没有 `ok`。看到 `url` 后，同一轮把它发给人，作为可点开的链接。不要等进程退出才发。然后继续等到最后一行 `ok`，或 stderr 上的失败信封。
 
 ## 契约
 
