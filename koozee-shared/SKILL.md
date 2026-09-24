@@ -42,7 +42,7 @@ sudo tar -xJf /tmp/nodejs-lts.tar.xz -C /usr/local --strip-components=1
 
 1. 这个文件不存在 → `npm install --prefix "$HOME/.koozee" koozee-cli@latest`。
 2. `npx skills add "$HOME/.koozee/node_modules/koozee-cli/skills" -g -y --skill koozee-shared --skill koozee-canvas --skill koozee-workbench`
-3. `"$HOME/.koozee/node_modules/.bin/koozee-cli" auth login`（默认 `release`）。预发加 `--env pre`。本机开发加 `--env dev`，打开 `https://dev.koozee.ai`。
+3. `"$HOME/.koozee/node_modules/.bin/koozee-cli" auth login`（默认 `release`）。预发加 `--env pre`。本机开发加 `--env dev`，打开 `https://dev.koozee.ai`，接口打 `http://localhost:4000`。
 
 本仓开发：`pnpm --dir cli exec koozee-cli --version`。用户目录里的 CLI 会自己升。不要自己 `npm i`。要马上对齐再跑 `"$HOME/.koozee/node_modules/.bin/koozee-cli" update`。
 
@@ -55,6 +55,8 @@ sudo tar -xJf /tmp/nodejs-lts.tar.xz -C /usr/local --strip-components=1
 CLI 不提问。安装、更新、生成不要停下来等人。判断成功用 **`ok == true`**。失败看 `error.hint`。参数看 `koozee-cli <命令> -h`。槽看 `+models`、`skill +get`、`workbench +list`。
 
 禁止手写画布 JSON、禁止传坐标、禁止自己拼 OpenAPI path、禁止自己订 SSE。怎么生成、怎么连线，读 `koozee-canvas`。
+
+对人讲到画布上的卡时，用信封里的 `name`。连线讲 `fromName`、`toName`。扇出讲 `nodeIds[].name`。`name` 是空字符串就说「未命名」。不要把 `nodeId`、`nodeIds[].nodeId`、`from`、`to` 念给人。这些只用于下一条 `--node-id`、`--from`、`--to`。两张卡同名也只讲名字。
 
 工作台独有工具先 `workbench +list` 再 `workbench +run --surface workbench`。用户安装会自己升 CLI 和 skills。不要自己 `npm i`。不要只升一边。要马上对齐再跑 `koozee-cli update`。扣豆前先 `+plan`，把 `totalBeans` 和 `warnings` 讲给人，讲完同一轮继续提交。怎么生成读 `koozee-canvas`。
 

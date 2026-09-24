@@ -22,14 +22,16 @@ description: "Generate with Koozee only when the workbench has no such tool: can
 ## 要入线
 
 1. `+generate --id <model> --surface workflow --place [--project-id <id>]` 只落卡，不提交。
-2. `+link --project-id <id> --from <source> --to <target>` 一次一条。可再加。不提交。
-3. `project +get --project-id <id>` 读节点和入线，讲给人听。
+2. `+link --project-id <id> --from <source> --to <target>` 一次一条。还贴在左缘、且没有别的入边的目标会放到源的右侧；另一条没连上的新卡在下一行左缘。页开着会把新卡移到画面中间。可再加。不提交。
+3. `project +get --project-id <id>` 读节点和入线。对人讲每张卡的 `name`，边讲 `fromName` → `toName`。不要念 id。
 4. 同一轮接着：`+generate --id <model> --surface workflow --project-id <id> --node-id <id>`。文本当场写入。图 / 视频只提交。不加边。
 
 `+generate --write` 不要用，改 `--place`。`skill +run --write` 才是提交后再写入项目，默认不加。
 
 ## 结果
 
-- 文本：信封 `text` 讲给人。`workflow --node-id` 同时写入该卡。人刷新画布才能看见。`taskIds` 为空就不要 `+await`。
-- 图 / 视频：信封有 `taskIds` 再 `+await --task-id <id> --surface workflow --project-id <id> --node-id <id>`。成功后写入该卡。超时跑信封 `next_command`。人刷新才能看见。
-- Skill：信封有 `taskIds` 用 `+await --task-id`；有 `runId` 用 `+await --run-id --id`。成功后扇出结果卡并加出边。不要对结果卡逐条 `+link`。正文在 `results[].text`。超时跑信封 `next_command`。人刷新才能看见。
+对人讲卡时用信封 `name`。不要念 `nodeId`。
+
+- 文本：信封 `text` 讲给人。`workflow --node-id` 同时写入该卡。命令会打开项目页；页开着就能看见节点和「Agent操作中」，不必再刷新。`taskIds` 为空就不要 `+await`。
+- 图 / 视频：信封有 `taskIds` 再 `+await --task-id <id> --surface workflow --project-id <id> --node-id <id>`。成功后写入该卡。超时跑信封 `next_command`。命令会打开项目页；页开着就能看见节点和「Agent操作中」，不必再刷新。
+- Skill：信封有 `taskIds` 用 `+await --task-id`；有 `runId` 用 `+await --run-id --id`。成功后扇出结果卡并加出边。不要对结果卡逐条 `+link`。正文在 `results[].text`。超时跑信封 `next_command`。命令会打开项目页；页开着就能看见节点和「Agent操作中」，不必再刷新。
