@@ -42,9 +42,9 @@ sudo tar -xJf /tmp/nodejs-lts.tar.xz -C /usr/local --strip-components=1
 
 1. 这个文件不存在 → `npm install --prefix "$HOME/.koozee" koozee-cli@latest`。
 2. `npx skills add "$HOME/.koozee/node_modules/koozee-cli/skills" -g -y --skill koozee-shared --skill koozee-canvas --skill koozee-workbench`
-3. `"$HOME/.koozee/node_modules/.bin/koozee-cli" auth login`（默认 `release`）。预发在同一条命令后加 `--env pre`。
+3. `"$HOME/.koozee/node_modules/.bin/koozee-cli" auth login`（默认 `release`）。预发加 `--env pre`。本机开发加 `--env dev`，打开 `https://dev.koozee.ai`。
 
-本仓开发：`pnpm --dir cli exec koozee-cli --version`。已装之后升用 `"$HOME/.koozee/node_modules/.bin/koozee-cli" update`。不要自己 `npm i` 当升级。
+本仓开发：`pnpm --dir cli exec koozee-cli --version`。用户目录里的 CLI 会自己升。不要自己 `npm i`。要马上对齐再跑 `"$HOME/.koozee/node_modules/.bin/koozee-cli" update`。
 
 ## 登录
 
@@ -56,6 +56,6 @@ CLI 不提问。安装、更新、生成不要停下来等人。判断成功用 
 
 禁止手写画布 JSON、禁止传坐标、禁止自己拼 OpenAPI path、禁止自己订 SSE。怎么生成、怎么连线，读 `koozee-canvas`。
 
-工作台独有工具先 `workbench +list` 再 `workbench +run --surface workbench`。要升就直接 `koozee-cli update`。不要自己 `npm i`。不要只升一边。扣豆前先 `+plan`，把 `totalBeans` 和 `warnings` 讲给人，讲完同一轮继续提交。怎么生成读 `koozee-canvas`。
+工作台独有工具先 `workbench +list` 再 `workbench +run --surface workbench`。用户安装会自己升 CLI 和 skills。不要自己 `npm i`。不要只升一边。要马上对齐再跑 `koozee-cli update`。扣豆前先 `+plan`，把 `totalBeans` 和 `warnings` 讲给人，讲完同一轮继续提交。怎么生成读 `koozee-canvas`。
 
 人要本机副本：用信封 `results[].url` 拉到用户指定的相对目录。不要绝对路径。不要静默覆盖。没有 `+download`。
