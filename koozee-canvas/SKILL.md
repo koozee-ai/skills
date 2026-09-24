@@ -21,8 +21,8 @@ description: "Generate with Koozee only when the workbench has no such tool: can
 
 ## 要入线
 
-1. `+generate --id <model> --surface workflow --place [--project-id <id>]` 只落卡，不提交。
-2. `+link --project-id <id> --from <source> --to <target>` 一次一条。还贴在左缘、且没有别的入边的目标会放到源的右侧；另一条没连上的新卡在下一行左缘。页开着会把新卡移到画面中间。可再加。不提交。
+1. 后继和边同一笔：`+generate --id <model> --surface workflow --place --from <source> --project-id <id>`。第一次出现就在源右侧。没有入线源的新卡仍 `--place`，落在下一行左缘。
+2. 已经在图上的卡才 `+link --project-id <id> --from <source> --to <target>`，一次一条。页开着会等展示框量完再把新卡移到画面中间；坐标又变了再居中一次。
 3. `project +get --project-id <id>` 读节点和入线。对人讲每张卡的 `name`，边讲 `fromName` → `toName`。不要念 id。
 4. 同一轮接着：`+generate --id <model> --surface workflow --project-id <id> --node-id <id>`。文本当场写入。图 / 视频只提交。不加边。
 
